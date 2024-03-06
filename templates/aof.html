@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Добавить объект
+{% endblock %}
+{% block file %}
+<link href="{{ url_for('static', filename='css/aof.css') }}" rel="stylesheet" type="text/css" media="all">
+{% endblock %}
+{% block body %}
+<section class="u-align-center u-clearfix u-custom-color-13 u-section-1" id="sec-066e">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-form u-form-1">
+          <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form" style="padding: 15px;" source="email" name="form">
+            <div class="u-form-group u-form-name u-label-none u-form-group-1">
+              <label for="name-6797" class="u-label">Name</label>
+              <input type="text" placeholder="Имя пользователя" id="name-6797" name="nickname" class="u-input u-input-rectangle u-radius-12" required="">
+            </div>
+            <div class="u-form-group u-label-none u-form-group-2">
+              <label for="email-6797" class="u-label">Email</label>
+              <input type="text" placeholder="Название объекта" id="email-6797" name="object_name" class="u-input u-input-rectangle u-radius-12" required="required">
+            </div>
+            <div class="u-form-group u-label-none u-form-group-3">
+              <label for="text-1f3a" class="u-label">Поле ввода</label>
+              <input type="text" placeholder="Год построения" id="text-1f3a" name="year" class="u-input u-input-rectangle u-radius-12">
+            </div>
+            <div class="u-form-group u-label-none u-form-group-4">
+              <label for="text-3e10" class="u-label">Поле ввода</label>
+              <input type="text" placeholder="Регион" id="text-3e10" name="region" class="u-input u-input-rectangle u-radius-12">
+            </div>
+            <div class="u-form-group u-label-none u-form-group-5">
+              <label for="text-ed72" class="u-label">Поле ввода</label>
+              <input type="text" placeholder="Значение (местное, региональное, федеральное)" id="text-ed72" name="categor" class="u-input u-input-rectangle u-radius-12">
+            </div>
+            <div class="u-form-group u-label-none u-form-group-6">
+              <label for="text-0e9c" class="u-label">Поле ввода</label>
+              <input type="text" placeholder="Вид (памятник, ансамбль, достопримечательное место)" id="text-0e9c" name="type" class="u-input u-input-rectangle u-radius-12">
+            </div>
+            <div class="u-form-group u-label-none u-form-group-7">
+              <label for="text-5288" class="u-label">Поле ввода</label>
+              <input type="text" placeholder="Принадлежность к ЮНЕСКО (да, нет)" id="text-5288" name="text" class="u-input u-input-rectangle u-radius-12">
+            </div>
+            <div class="u-align-left u-form-group u-form-submit u-form-group-8">
+              <a href="#" class="u-btn u-btn-submit u-button-style u-palette-1-light-1 u-btn-1">Submit</a>
+              <input type="submit" value="submit" class="u-form-control-hidden">
+            </div>
+            <div class="u-form-send-message u-form-send-success">Thank you! Your message has been sent.</div>
+            <div class="u-form-send-error u-form-send-message">Unable to send your message. Please fix errors then try again.</div>
+            <input type="hidden" value="" name="recaptchaResponse">
+            <input type="hidden" name="formServices" value="ec3d60b0-ca00-1056-aaa7-55121e339a40">
+          </form>
+        </div>
+      </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Результат поиска
+{% endblock %}
+{% block file %}
+<link href="{{ url_for('static', filename='css/Найти-объект.css') }}" rel="stylesheet" type="text/css"
+      media="all">{% endblock %}
+
+{% block body %}
+<section class="u-align-center u-clearfix u-custom-color-13 u-section-1" id="sec-b182">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        {% if obj %}
+        <h1>Найдено объектов: {{ obj|count }}</h1>
+        {% for item in obj %}
+        <div class="shadow-lg p-3 mb-5 bg-body rounded">
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.about }}</p>
+            <a href="/{{ item.id }}">Ссылка на памятник</a>
+            <br>
+            <br>
+            <br>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>Ничего не найдено</p>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

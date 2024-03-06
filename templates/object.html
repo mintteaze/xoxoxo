@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}
+{{ obj.name }}
+{% endblock %}
+{% block body %}
+<section class="u-align-center u-clearfix u-custom-color-13 u-section-1" id="sec-b182">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="main">
+            <div align="right">
+                {% if current_user.is_admin %}
+                <a class="btn btn-primary" href="/edit_obj/{{ obj.id }}">Изменить объект</a>
+                <a class="btn btn-danger" href="/del_obj/{{ obj.id }}">Удалить объект</a>
+                {% endif %}
+            </div>
+            <h3>{{ obj.name }} ({{ cat }}, {{ kind }})</h3>
+            <br>
+            <h4>{{ obj.about }}</h4>
+            <p>Номер в реестре - {{ obj.reester_number }}</p>
+            <p>Регион - {{ obj.region}} ({{ region }})</p>
+            {% if obj.full_address %}
+            <p>Адрес - {{ obj.full_address }}</p>
+            {% endif %}
+            {% if obj.unesco %}
+            <p>Объект находиться под охраной Юнеско</p>
+            {% endif %}
+            <img src="{{ url_for('static', filename='photo/object.png') }}" alt="здесь должна была быть картинка,
+                     но не нашлась">
+            <br>
+            <br>
+            <br>
+            {% if obj.coords %}
+            <img src="{{ url_for('static', filename='photo/map.png') }}">
+            {% endif %}
+            {% if current_user.is_authenticated %}
+            <form action="" method="post">
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.text.label }}<br>
+                    {{ form.text(class="form-control") }}<br>
+                    {% for error in form.text.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endfor %}
+                </p>
+                <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+                <p hidden>{{ form.obj_id(value=obj.id) }}</p>
+            </form>
+            {% endif %}
+            <br>
+            {% for com in comments %}
+            <div class="shadow p-3 mb-5 bg-body rounded">
+                <p>
+                    User{{ com.creater_id }}: {{ com.text }}
+                </p>
+            </div>
+            <br>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
